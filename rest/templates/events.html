@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+
+<style>
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+</style>
+
+<body>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>summary</th>
+      <th>Organizer</th>
+      <th>Creator</th>
+      <th>Status</th>
+      <th>Link</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Created On</th>
+      <!-- Add more columns as needed -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr>
+      <td>{{ item.summary }}</td>
+      <td>{{ item.organizer.email }}</td>
+      <td>{{ item.creator.email}}</td>
+      <td>{{ item.status }}</td>
+      <td> <a href='{{ item.htmlLink }}'> Link </a></td>
+      <td>{{ item.start.dateTime }}</td>
+      <td>{{ item.end.dateTime }}</td>
+      <td>{{ item.created }}</td>
+      <!-- Add more columns as needed -->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>
